@@ -21,6 +21,7 @@ var
   header = require('gulp-header'),
   path = require('path'),
   runseq = require('run-sequence'),
+  sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify')
 ;
 
@@ -54,8 +55,10 @@ function defineBuildTask(name, manifest) {
 
     gulp.task(name, ['version', name + '-debug'], function() {
       return gulp.src(list)
-      .pipe(concat(output + '.min.js'))
-      .pipe(uglify())
+      .pipe(sourcemaps.init())
+        .pipe(concat(output + '.min.js'))
+        .pipe(uglify())
+      .pipe(sourcemaps.write('./'))
       .pipe(header(banner, {pkg: pkg}))
       .pipe(gulp.dest('dist/'))
       ;
