@@ -1,7 +1,5 @@
-webcomponents.js-dev
-====================
+# This repo is deprecated.
 
-Web Component polyfills development respository.
-
-Production distributions may be built using gulp. Pre-built versions are 
-available at https://github.com/Polymer/webcomponentsjs.
+https://github.com/Polymer/webcomponentsjs now contains both development and 
+release versions of the web components polyfills. Please create issues and 
+pull requests against that repo.
